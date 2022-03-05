@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace BuscaDadosCVM.Models
 {
     public class Taxa
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         public string CNPJ_FUNDO { get; set; }
         public DateTime DT_COMPTC { get; set; }

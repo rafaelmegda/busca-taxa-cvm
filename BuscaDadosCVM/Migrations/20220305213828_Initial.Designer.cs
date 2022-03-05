@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuscaDadosCVM.Migrations
 {
     [DbContext(typeof(BuscaDadosCVMContext))]
-    [Migration("20220305210802_Initial")]
+    [Migration("20220305213828_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
