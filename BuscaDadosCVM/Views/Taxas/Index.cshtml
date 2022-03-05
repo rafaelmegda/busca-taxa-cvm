@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BuscaDadosCVM.Models.Taxa>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CNPJ_FUNDO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DT_COMPTC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VL_TOTAL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VL_QUOTA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VL_PATRIM_LIQ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CAPTC_DIA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RESG_DIA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NR_COTST)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CNPJ_FUNDO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DT_COMPTC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VL_TOTAL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VL_QUOTA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VL_PATRIM_LIQ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CAPTC_DIA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RESG_DIA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NR_COTST)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,68 @@
+﻿@model BuscaDadosCVM.Models.Taxa
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Taxa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CNPJ_FUNDO" class="control-label"></label>
+                <input asp-for="CNPJ_FUNDO" class="form-control" />
+                <span asp-validation-for="CNPJ_FUNDO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DT_COMPTC" class="control-label"></label>
+                <input asp-for="DT_COMPTC" class="form-control" />
+                <span asp-validation-for="DT_COMPTC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VL_TOTAL" class="control-label"></label>
+                <input asp-for="VL_TOTAL" class="form-control" />
+                <span asp-validation-for="VL_TOTAL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VL_QUOTA" class="control-label"></label>
+                <input asp-for="VL_QUOTA" class="form-control" />
+                <span asp-validation-for="VL_QUOTA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VL_PATRIM_LIQ" class="control-label"></label>
+                <input asp-for="VL_PATRIM_LIQ" class="form-control" />
+                <span asp-validation-for="VL_PATRIM_LIQ" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CAPTC_DIA" class="control-label"></label>
+                <input asp-for="CAPTC_DIA" class="form-control" />
+                <span asp-validation-for="CAPTC_DIA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RESG_DIA" class="control-label"></label>
+                <input asp-for="RESG_DIA" class="form-control" />
+                <span asp-validation-for="RESG_DIA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NR_COTST" class="control-label"></label>
+                <input asp-for="NR_COTST" class="form-control" />
+                <span asp-validation-for="NR_COTST" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
