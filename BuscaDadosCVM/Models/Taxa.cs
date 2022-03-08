@@ -10,6 +10,7 @@ namespace BuscaDadosCVM.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
+        public int AnoMesDivulgacao { get; set; }
         public string CNPJ_FUNDO { get; set; }
         public DateTime DT_COMPTC { get; set; }
         public decimal VL_TOTAL { get; set; }

@@ -17,10 +17,26 @@ namespace BuscaDadosCVM.Migrations
                 .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("BuscaDadosCVM.Models.DataAno", b =>
+                {
+                    b.Property<int>("DataAnoId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Ano");
+
+                    b.Property<int>("Mes");
+
+                    b.HasKey("DataAnoId");
+
+                    b.ToTable("Mes");
+                });
+
             modelBuilder.Entity("BuscaDadosCVM.Models.Taxa", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AnoMesDivulgacao");
 
                     b.Property<decimal>("CAPTC_DIA");
 
