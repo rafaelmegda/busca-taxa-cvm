@@ -72,7 +72,10 @@ namespace BuscaDadosCVM.Controllers
 
             int anoMesDivulgacao = int.Parse(data.Ano.ToString() + data.Mes.ToString());
 
-            var relatorioBaixado = await verificarDadosBaixados(anoMesDivulgacao);
+            statusImportacao(uri, anoMesDivulgacao, Status.Iniciado);
+
+            //pegar esse retorno e validar se foi importado a taxa para este dia, caso sim, retorno msg na tela do usuário
+            findByAnoMesDivulgacao(anoMesDivulgacao);
 
             //if(relatorioBaixado == null)
             //{
@@ -90,9 +93,13 @@ namespace BuscaDadosCVM.Controllers
                 csvReader.ReadHeader();
                 while (csvReader.Read())
                 {
+                    statusImportacao(uri, anoMesDivulgacao, Status.Importando);
+
                     var record = new Taxa
                     {
+                        //Incluir o Id da Importacao
                         AnoMesDivulgacao = anoMesDivulgacao,
+                        DataImportacao = DateTime.Now,
                         CNPJ_FUNDO = csvReader.GetField("CNPJ_FUNDO"),
                         DT_COMPTC = csvReader.GetField<DateTime>("DT_COMPTC"),
                         VL_TOTAL = csvReader.GetField<decimal>("VL_TOTAL"),
@@ -104,16 +111,41 @@ namespace BuscaDadosCVM.Controllers
                     };
                     _context.Add(record);
                     await _context.SaveChangesAsync();
-                    taxas.Add(record);
+                    //taxas.Add(record);
                 }
             }
+
+            statusImportacao(uri, anoMesDivulgacao, Status.Finalizada);
 
             return taxas;
         }
 
-        private async Task<Taxa> verificarDadosBaixados(int anoMesDivulgacao)
+        private Taxa findByAnoMesDivulgacao(int anoMesDivulgacao)
+        {   
+            return _context.Taxa.Find(anoMesDivulgacao);
+        }
+
+        private void statusImportacao(string uri, int anoMesDivulgacao, Status status)
         {
-            return await _context.Taxa.FindAsync(anoMesDivulgacao);
+            //Criar validação se o status é != inicial fazer update em vez de insert
+            var record = new ImportacaoTaxa
+            {
+                DataImportacao = DateTime.Now,
+                StatusImportacao = status.ToString(),
+                ArquivoImportado = uri,
+                DataDivulgacaoArquivo = anoMesDivulgacao
+            };
+            _context.Add(record);
+            _context.SaveChanges();
+        }
+
+        public enum Status
+        {
+            Iniciado,
+            Importando,
+            Finalizada,
+            Falhou
         }
     }
 }
+

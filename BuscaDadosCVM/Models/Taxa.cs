@@ -11,6 +11,7 @@ namespace BuscaDadosCVM.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         public int AnoMesDivulgacao { get; set; }
+        public DateTime DataImportacao { get; set; }
         public string CNPJ_FUNDO { get; set; }
         public DateTime DT_COMPTC { get; set; }
         public decimal VL_TOTAL { get; set; }
@@ -19,5 +20,6 @@ namespace BuscaDadosCVM.Models
         public decimal CAPTC_DIA { get; set; }
         public decimal RESG_DIA { get; set; }
         public decimal NR_COTST { get; set; }
+        public ImportacaoTaxa ImportacaoTaxaId { get; set; }
     }
 }

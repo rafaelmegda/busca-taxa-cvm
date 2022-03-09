@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using BuscaDadosCVM.Data;
+using BuscaDadosCVM.Services;
 
 namespace BuscaDadosCVM
 {
@@ -39,6 +40,8 @@ namespace BuscaDadosCVM
             services.AddDbContext<BuscaDadosCVMContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("BuscaDadosCVMContext"), builder =>
                         builder.MigrationsAssembly("BuscaDadosCVM")));
+
+            services.AddScoped<TaxaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

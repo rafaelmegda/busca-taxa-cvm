@@ -50,15 +50,6 @@ namespace BuscaDadosCVM.Services
                     await _context.SaveChangesAsync();
                     taxas.Add(record);
                 }
-
-                //var records = csvReader.GetRecords<Taxa>();
-
-                //foreach (var taxa in records)
-                //{
-                //    _context.Add(taxa);
-                //    await _context.SaveChangesAsync();
-                //    taxas.Add(taxa);
-                //}
             }
 
             return taxas;
