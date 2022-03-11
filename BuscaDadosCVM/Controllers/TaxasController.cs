@@ -72,7 +72,7 @@ namespace BuscaDadosCVM.Controllers
 
             int anoMesDivulgacao = int.Parse(data.Ano.ToString() + data.Mes.ToString());
 
-            statusImportacao(uri, anoMesDivulgacao, Status.Iniciado);
+            //statusImportacao(uri, anoMesDivulgacao, Status.Iniciado);
 
             //pegar esse retorno e validar se foi importado a taxa para este dia, caso sim, retorno msg na tela do usuário
             findByAnoMesDivulgacao(anoMesDivulgacao);
@@ -93,7 +93,7 @@ namespace BuscaDadosCVM.Controllers
                 csvReader.ReadHeader();
                 while (csvReader.Read())
                 {
-                    statusImportacao(uri, anoMesDivulgacao, Status.Importando);
+                    //statusImportacao(uri, anoMesDivulgacao, Status.Importando);
 
                     var record = new Taxa
                     {
@@ -115,7 +115,7 @@ namespace BuscaDadosCVM.Controllers
                 }
             }
 
-            statusImportacao(uri, anoMesDivulgacao, Status.Finalizada);
+            //statusImportacao(uri, anoMesDivulgacao, Status.Finalizada);
 
             return taxas;
         }
@@ -125,19 +125,19 @@ namespace BuscaDadosCVM.Controllers
             return _context.Taxa.Find(anoMesDivulgacao);
         }
 
-        private void statusImportacao(string uri, int anoMesDivulgacao, Status status)
-        {
-            //Criar validação se o status é != inicial fazer update em vez de insert
-            var record = new ImportacaoTaxa
-            {
-                DataImportacao = DateTime.Now,
-                StatusImportacao = status.ToString(),
-                ArquivoImportado = uri,
-                DataDivulgacaoArquivo = anoMesDivulgacao
-            };
-            _context.Add(record);
-            _context.SaveChanges();
-        }
+        //private void statusImportacao(string uri, int anoMesDivulgacao, Status status)
+        //{
+        //    //Criar validação se o status é != inicial fazer update em vez de insert
+        //    var record = new ImportacaoTaxa
+        //    {
+        //        DataImportacao = DateTime.Now,
+        //        StatusImportacao = status.ToString(),
+        //        ArquivoImportado = uri,
+        //        DataDivulgacaoArquivo = anoMesDivulgacao
+        //    };
+        //    _context.Add(record);
+        //    _context.SaveChanges();
+        //}
 
         public enum Status
         {
