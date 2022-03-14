@@ -56,7 +56,8 @@ Dentro da API é possível realizar a consulta das taxas CVM de três formas:
 * Ter o [Visual Studio 2019 Community](https://visualstudio.microsoft.com/pt-br/vs/older-downloads/)
 * No Visual Studio, Build o projeto e Rode o Projeto
 
-### Para criar as tabelas no MySQL basta rodar os comandos abaixo dentro do Console de Gerenciador de Pacotes do Visual Studio. Esses comandos irão criar as migrations com base na classe de Models e ContextDataBase
+### Tabelas (Database)
+Para criar as tabelas no MySQL basta rodar os comandos abaixo dentro do Console de Gerenciador de Pacotes do Visual Studio. Esses comandos irão criar as migrations com base na classe de Models e ContextDataBase
 * Add-Migration Initial
 * Update-database
 
