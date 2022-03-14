@@ -77,23 +77,23 @@ namespace BuscaDadosCVM.Controllers
 
         }
 
-        // POST api/<TaxasimportadasController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
+        //// POST api/<TaxasimportadasController>
+        //[HttpPost]
+        //public void Post([FromBody] string value)
+        //{
 
-        }
+        //}
 
-        // PUT api/<TaxasimportadasController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        //// PUT api/<TaxasimportadasController>/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] string value)
+        //{
+        //}
 
-        // DELETE api/<TaxasimportadasController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //// DELETE api/<TaxasimportadasController>/5
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

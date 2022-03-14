@@ -35,8 +35,4 @@ C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDad
 C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\BuscaDadosCVM.csproj.CopyComplete
 C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Taxas\Index.cshtml.g.cs
 C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Taxas\Create.cshtml.g.cs
-C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Taxas1\Create.cshtml.g.cs
-C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Taxas1\Delete.cshtml.g.cs
-C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Taxas1\Details.cshtml.g.cs
-C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Taxas1\Edit.cshtml.g.cs
-C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Taxas1\Index.cshtml.g.cs
+C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Taxas\Index-antigo.cshtml.g.cs

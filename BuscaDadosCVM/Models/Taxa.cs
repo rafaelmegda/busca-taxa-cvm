@@ -20,5 +20,6 @@ namespace BuscaDadosCVM.Models
         public decimal CAPTC_DIA { get; set; }
         public decimal RESG_DIA { get; set; }
         public decimal NR_COTST { get; set; }
+        public ImportacaoTaxa ImportacaoTaxaId { get; set; }
     }
 }

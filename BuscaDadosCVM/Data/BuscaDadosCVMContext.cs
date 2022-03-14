@@ -15,6 +15,8 @@ namespace BuscaDadosCVM.Data
         }
 
         public DbSet<BuscaDadosCVM.Models.Taxa> Taxa { get; set; }
+        public DbSet<BuscaDadosCVM.Models.ImportacaoTaxa> ImportacaoTaxa { get; set; }
+
         //public DbSet<BuscaDadosCVM.Models.DataAno> Mes { get; set; }
     }
 }

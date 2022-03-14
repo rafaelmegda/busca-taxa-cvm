@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BuscaDadosCVM.Models.Taxa>
+﻿@model IEnumerable<BuscaDadosCVM.Models.ImportacaoTaxa>
 
 @{
     ViewData["Title"] = "Importação das Taxas CVM";
@@ -17,37 +17,25 @@
     </div>
 </div>
 
+<p>
+    <a asp-action="Index">Atualizar Status Importacao</a>
+</p>
 
 
-
-
-
-@*<table class="table">
+<table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CNPJ_FUNDO)
+                @Html.DisplayNameFor(model => model.DataImportacao)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DT_COMPTC)
+                @Html.DisplayNameFor(model => model.StatusImportacao)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.VL_TOTAL)
+                @Html.DisplayNameFor(model => model.ArquivoImportado)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.VL_QUOTA)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VL_PATRIM_LIQ)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CAPTC_DIA)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RESG_DIA)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NR_COTST)
+                @Html.DisplayNameFor(model => model.DataDivulgacaoArquivo)
             </th>
             <th></th>
         </tr>
@@ -57,35 +45,18 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CNPJ_FUNDO)
+                    @Html.DisplayFor(modelItem => item.DataImportacao)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DT_COMPTC)
+                    @Html.DisplayFor(modelItem => item.StatusImportacao)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.VL_TOTAL)
+                    @Html.DisplayFor(modelItem => item.ArquivoImportado)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.VL_QUOTA)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VL_PATRIM_LIQ)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CAPTC_DIA)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RESG_DIA)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NR_COTST)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    @Html.DisplayFor(modelItem => item.DataDivulgacaoArquivo)
                 </td>
             </tr>
         }
     </tbody>
-</table>*@
+</table>

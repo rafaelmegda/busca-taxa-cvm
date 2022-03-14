@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuscaDadosCVM.Migrations
 {
     [DbContext(typeof(BuscaDadosCVMContext))]
-    [Migration("20220310202430_initial")]
-    partial class initial
+    [Migration("20220312153127_Import")]
+    partial class Import
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,6 +18,24 @@ namespace BuscaDadosCVM.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("BuscaDadosCVM.Models.ImportacaoTaxa", b =>
+                {
+                    b.Property<int>("ImportacaoTaxaId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ArquivoImportado");
+
+                    b.Property<int>("DataDivulgacaoArquivo");
+
+                    b.Property<DateTime>("DataImportacao");
+
+                    b.Property<string>("StatusImportacao");
+
+                    b.HasKey("ImportacaoTaxaId");
+
+                    b.ToTable("ImportacaoTaxa");
+                });
 
             modelBuilder.Entity("BuscaDadosCVM.Models.Taxa", b =>
                 {
@@ -34,6 +52,8 @@ namespace BuscaDadosCVM.Migrations
 
                     b.Property<DateTime>("DataImportacao");
 
+                    b.Property<int?>("ImportacaoTaxaId1");
+
                     b.Property<decimal>("NR_COTST");
 
                     b.Property<decimal>("RESG_DIA");
@@ -46,7 +66,16 @@ namespace BuscaDadosCVM.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("ImportacaoTaxaId1");
+
                     b.ToTable("Taxa");
+                });
+
+            modelBuilder.Entity("BuscaDadosCVM.Models.Taxa", b =>
+                {
+                    b.HasOne("BuscaDadosCVM.Models.ImportacaoTaxa", "ImportacaoTaxaId")
+                        .WithMany()
+                        .HasForeignKey("ImportacaoTaxaId1");
                 });
 #pragma warning restore 612, 618
         }
