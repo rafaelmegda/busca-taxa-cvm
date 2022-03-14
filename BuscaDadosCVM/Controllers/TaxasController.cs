@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -41,7 +42,7 @@ namespace BuscaDadosCVM.Controllers
             int anoMesDivulgacao = int.Parse(data.Ano.ToString() + data.Mes.ToString());
             var registroTaxa = await _context.Taxa.FirstOrDefaultAsync(obj => obj.AnoMesDivulgacao == anoMesDivulgacao);
 
-            if (registroTaxa == null)
+            if (registroTaxa != null)
             {
                 return RedirectToAction(nameof(Index));
             }
@@ -51,12 +52,10 @@ namespace BuscaDadosCVM.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public enum Status
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
         {
-            Iniciado,
-            Importando,
-            Finalizada,
-            Falhou
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

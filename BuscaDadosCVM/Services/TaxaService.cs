@@ -38,23 +38,15 @@ namespace BuscaDadosCVM.Services
         public async Task<List<Taxa>> InsertTaxa(DataAno data, String uri)
         {
             List<Taxa> taxas = new List<Taxa>();
+
             uri = validarEndpoint(data);
 
             int anoMesDivulgacao = int.Parse(data.Ano.ToString() + data.Mes.ToString());
 
             var importacao = statusImportacao(uri, anoMesDivulgacao, Status.Iniciado, null);
-            int idImportacao = importacao.ImportacaoTaxaId;
 
             try
             {
-                //var registroTaxa = buscarRegistroTaxa(anoMesDivulgacao);
-
-                //if (registroTaxa == null)
-                //{
-                //    importacao = statusImportacao(uri, anoMesDivulgacao, Status.JaImportado, idImportacao);
-                //    return taxas;
-                //}
-
                 using (var stream = await client.GetStreamAsync(uri))
                 using (var streamReader = new StreamReader(stream))
                 using (var csvReader = new CsvReader(streamReader, System.Globalization.CultureInfo.CurrentCulture))
@@ -63,11 +55,9 @@ namespace BuscaDadosCVM.Services
                     csvReader.ReadHeader();
                     while (csvReader.Read())
                     {
-                        importacao = statusImportacao(uri, anoMesDivulgacao, Status.Importando, idImportacao);
-
                         var record = new Taxa
                         {
-                            ImportacaoTaxaId = importacao,
+                            //ImportacaoTaxaId = importacao,
                             AnoMesDivulgacao = anoMesDivulgacao,
                             DataImportacao = DateTime.Now,
                             CNPJ_FUNDO = csvReader.GetField("CNPJ_FUNDO"),
@@ -87,63 +77,34 @@ namespace BuscaDadosCVM.Services
                     }
                 }
 
-                importacao = statusImportacao(uri, anoMesDivulgacao, Status.Finalizada, idImportacao);
+                importacao = statusImportacao(uri, anoMesDivulgacao, Status.Finalizada, null);
 
                 return taxas;
             }
             catch (Exception)
             {
-                importacao = statusImportacao(uri, anoMesDivulgacao, Status.Falhou, idImportacao);
+                importacao = statusImportacao(uri, anoMesDivulgacao, Status.Falhou, null);
                 throw;
             }
         }
 
-        public async Task<Taxa> buscarRegistroTaxa(int anoMesDivulgacao)
+        public async Task<ImportacaoTaxa> statusImportacao(string uri, int anoMesDivulgacao, Status status, int? id_importacao)
         {
-            var resultado = _context.Taxa.
-                Where(obj => obj.AnoMesDivulgacao == anoMesDivulgacao).FirstOrDefault();
-
-            return resultado;
-        }
-
-        private async Task<ImportacaoTaxa> statusImportacao(string uri, int anoMesDivulgacao, Status status, int? id_importacao)
-        {
-
-            if (id_importacao == null)
+            var importacaoTaxa = new ImportacaoTaxa
             {
-                var importacaoTaxa = new ImportacaoTaxa
-                {
-                    DataImportacao = DateTime.Now,
-                    StatusImportacao = status.ToString(),
-                    ArquivoImportado = uri,
-                    DataDivulgacaoArquivo = anoMesDivulgacao
-                };
+                DataImportacao = DateTime.Now,
+                StatusImportacao = status.ToString(),
+                ArquivoImportado = uri,
+                DataDivulgacaoArquivo = anoMesDivulgacao
+            };
 
-                _context.Add(importacaoTaxa);
-                await _context.SaveChangesAsync();
+            _context.Add(importacaoTaxa);
+            await _context.SaveChangesAsync();
 
-                var resultadoInsert = _context.ImportacaoTaxa.
-                Where(obj => obj.DataDivulgacaoArquivo == anoMesDivulgacao).FirstOrDefault();
+            var resultadoInsert = _context.ImportacaoTaxa.
+            Where(obj => obj.DataDivulgacaoArquivo == anoMesDivulgacao).FirstOrDefault();
 
-                return resultadoInsert;
-            }
-            else
-            {
-                var importacaoTaxa = new ImportacaoTaxa
-                {
-                    DataImportacao = DateTime.Now,
-                    StatusImportacao = status.ToString(),
-                    ArquivoImportado = uri,
-                    DataDivulgacaoArquivo = anoMesDivulgacao
-                };
-
-                _context.Update(importacaoTaxa);
-            }
-
-            var resultado = _context.ImportacaoTaxa.
-                Where(obj => obj.DataDivulgacaoArquivo == anoMesDivulgacao).FirstOrDefault();
-
-            return resultado;
+            return resultadoInsert;
         }
 
         public enum Status

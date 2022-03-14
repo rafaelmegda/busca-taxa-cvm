@@ -16,10 +16,6 @@ C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDad
 C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\BuscaDadosCVM.TagHelpers.input.cache
 C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\BuscaDadosCVM.TagHelpers.output.cache
 C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\BuscaDadosCVM.RazorCoreGenerate.cache
-C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.cshtml.g.cs
-C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.cshtml.g.cs
-C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -35,4 +31,3 @@ C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDad
 C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\BuscaDadosCVM.csproj.CopyComplete
 C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Taxas\Index.cshtml.g.cs
 C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Taxas\Create.cshtml.g.cs
-C:\Users\Camila\Documents\COISAS RAFAEL\Workspace-codigos\BuscaDadosCVM\BuscaDadosCVM\obj\Debug\netcoreapp2.1\Razor\Views\Taxas\Index-antigo.cshtml.g.cs
