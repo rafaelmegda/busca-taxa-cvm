@@ -2,6 +2,11 @@
 
 Este sistema foi desenvolvido para realizar a importação da taxa CVM do endereço http://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/DADOS/. O Processo consiste em ler o arquivo .csv, salvar na base de dados, e disponibilizar através de API.
 
+## Próximas Releases
+* Evolução do FrontEnd
+* Monitor para acompanhar a importação
+* Tratamentos para validações dos arquivos baixados
+* Melhoria performance para download
 
 ## O Sistema
 
